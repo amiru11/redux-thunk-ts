@@ -1,9 +1,7 @@
 import axios from 'axios';
 
-export async function getUserProfile(username: string) {
-  const response = await axios.get<IUserProfile>(
-    `https://api.github.com/users/${username}`
-  );
+export async function getUserProfile(username: string): Promise<IUserProfile> {
+  const response = await axios.get<IUserProfile>(`https://api.github.com/users/${username}`);
   return response?.data;
 }
 
