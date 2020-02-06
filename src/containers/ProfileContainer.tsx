@@ -11,7 +11,6 @@ function ProfileContainer(): JSX.Element {
   const dispatch = useDispatch();
 
   function onSumbit(username: string): void {
-    console.log('username', username);
     dispatch(getUserProfileThunk(username));
   }
   return (

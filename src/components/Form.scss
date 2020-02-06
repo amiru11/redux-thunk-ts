@@ -1,0 +1,32 @@
+.form-container {
+  display: flex;
+  width: 600px;
+  margin: 10px auto;
+
+  form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    input {
+      flex-grow: 1;
+      border: 0;
+      outline: 0;
+      height: 32px;
+      border-bottom: 2px solid #fcba3d;
+    }
+
+    button {
+      cursor: pointer;
+      height: 32px;
+      padding: 10px;
+      border: 0;
+      outline: 0;
+      background-color: #fcba3d;
+      color: #ffffff;
+
+      &:hover {
+        background-color: #fcb42c;
+      }
+    }
+  }
+}
