@@ -7,12 +7,11 @@ import Form from '../components/Form';
 import Profile from '../components/Profile';
 
 function ProfileContainer(): JSX.Element {
-  const { loading, error, data } = useSelector(
-    (state: RootState) => state?.github?.userProfile
-  );
+  const { loading, error, data } = useSelector((state: RootState) => state?.github?.userProfile);
   const dispatch = useDispatch();
 
   function onSumbit(username: string): void {
+    console.log('username', username);
     dispatch(getUserProfileThunk(username));
   }
   return (
@@ -20,14 +19,7 @@ function ProfileContainer(): JSX.Element {
       <Form onSubmit={onSumbit} />
       {loading && <p style={{ textAlign: 'center' }}>로딩중..</p>}
       {error && <p style={{ textAlign: 'center' }}>에러 발생!</p>}
-      {data && (
-        <Profile
-          name={data.name}
-          bio={data.bio}
-          thumbnail={data.avatar_url}
-          blog={data.blog}
-        />
-      )}
+      {data && <Profile name={data.name} bio={data.bio} thumbnail={data.avatar_url} blog={data.blog} />}
     </>
   );
 }

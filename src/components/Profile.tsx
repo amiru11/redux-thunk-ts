@@ -1,4 +1,8 @@
 import React from 'react';
+import classNames from 'classnames/bind';
+import styles from './Profile.scss';
+
+const cx = classNames.bind(styles);
 
 interface IProfileInfoProps {
   name: string;
@@ -7,16 +11,11 @@ interface IProfileInfoProps {
   blog: string;
 }
 
-function Profile({
-  name,
-  thumbnail,
-  bio,
-  blog,
-}: IProfileInfoProps): JSX.Element {
+function Profile({ name, thumbnail, bio, blog }: IProfileInfoProps): JSX.Element {
   return (
-    <div>
+    <div className={cx('profile-container')}>
       <div>
-        <img src={thumbnail} alt='user thumbnail' />
+        <img src={thumbnail} alt="user thumbnail" />
         <p>{name}</p>
       </div>
       <p>{bio}</p>

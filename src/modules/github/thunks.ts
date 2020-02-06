@@ -12,16 +12,16 @@ import { getUserProfileAsync } from './actions';
  * 3.TExtraThunkArg: redux-thunk 미들웨어의 Extra Argument
  * 4.TBasicAction: dispatch 할 수 있는 액션들의 타입
  */
-export function getUserProfileThunk(
-  username: string
-): ThunkAction<Promise<void>, RootState, null, GithubAction> {
+export function getUserProfileThunk(username: string): ThunkAction<Promise<void>, RootState, null, GithubAction> {
   return async dispatch => {
     const { request, success, failure } = getUserProfileAsync;
     dispatch(request());
     try {
       const userProfile = await getUserProfile(username);
+      console.log('userProfile', userProfile);
       dispatch(success(userProfile));
     } catch (err) {
+      console.log('err', err);
       dispatch(failure(err));
     }
   };

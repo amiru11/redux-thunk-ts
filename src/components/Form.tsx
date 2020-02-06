@@ -12,13 +12,14 @@ function Form({ ...props }: IFormProps): JSX.Element {
   }
 
   function onSubmit(event: React.FormEvent<HTMLFormElement>): void {
+    event.preventDefault();
     props.onSubmit(username);
   }
 
   return (
     <form onSubmit={onSubmit}>
-      <input type='text' onChange={handleChange} value={username} />
-      <button type='submit'>Click</button>
+      <input type="text" onChange={handleChange} value={username} />
+      <button type="submit">Click</button>
     </form>
   );
 }
